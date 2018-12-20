@@ -48,7 +48,7 @@ static NSString * const kCellIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.widthArray.count;
+    return self.widthArray1.count;
 }
 
  - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +77,7 @@ static NSString * const kCellIdentifier = @"Cell";
         UICollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
 
         UILabel *label = [[UILabel alloc] initWithFrame:header.bounds];
-        label.text = [NSString stringWithFormat:@"第%ld头", (unsigned long)indexPath.section];
+        label.text = [NSString stringWithFormat:@"%ld", (unsigned long)indexPath.section];
         label.textColor = [UIColor greenColor];
         label.textAlignment = NSTextAlignmentCenter;
         if (indexPath.section == 0) {
@@ -111,8 +111,8 @@ static NSString * const kCellIdentifier = @"Cell";
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowLayout.minimumInteritemSpacing = 100; // use widthArray it can work.
-//    flowLayout.minimumLineSpacing = 100; // use widthArray1 it can work.
+//    flowLayout.minimumInteritemSpacing = 100; // use widthArray it can work.
+    flowLayout.minimumLineSpacing = 100; // use widthArray1 it can work.
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.collectionView.delegate = self;
